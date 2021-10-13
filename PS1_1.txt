@@ -1,0 +1,23 @@
+import random 
+def Print_values(a,b,c):
+    if a > b: 
+        if b > c:
+            print(a,b,c)
+        elif a > c:
+            print(a,c,b)
+        else: print(c,a,b)
+    elif a < b:
+        if b < c:
+            print(c,b,a)
+        elif b > c:
+            if a > c: 
+                print(a,c,b)
+            else: print (c,a,b)
+        elif b < c:
+            print(c,b,a)
+
+a = random.randint(0,50)
+b = random.randint(0,50)
+c = random.randint(0,50)
+print("a:",a,"b:",b,"c:",c)
+Print_values(a, b, c)

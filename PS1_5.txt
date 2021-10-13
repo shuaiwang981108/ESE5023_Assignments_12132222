@@ -1,0 +1,37 @@
+import random
+import matplotlib.pyplot as plt
+def Find_expression(res, number, aa: str):
+    
+    if len(number) == 1:
+        for i in range(len(number)):
+            a = number[i]
+            b = number[:]           
+            b.pop(i)    #借鉴了python的pop函数，https://www.runoob.com/python/att-list-pop.html
+            operate = str(a)
+            aa = aa + operate
+            if eval(aa) == res:   #字符串的计算函数eval,https://www.runoob.com/python/python-func-eval.html
+                print(aa + "=" + str(res))    
+                Total_solutions.append(aa)
+                y = len(Total_solutions)
+                z.append(y)
+                print(y)
+                plt.scatter(x, y)    #计算出每个数对应的结果，并画出每个的数据个数
+            else:    
+                return False
+        
+    for i in range(len(number)):
+        a = number[i]
+        b = number[:]
+        b.pop(i)
+        operate = str(a)
+        aa = aa + operate
+        Find_expression(res, b, aa + '+')   #python递归的思想，重新调用find_expression，https://blog.csdn.net/ruanxingzi123/article/details/82658669
+        Find_expression(res, b, aa + '-')
+        Find_expression(res, b, aa + '')
+        return True
+    
+Total_solutions = []
+z = []
+number = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+x = random.randint(1,100)
+result = Find_expression(x, number, '')

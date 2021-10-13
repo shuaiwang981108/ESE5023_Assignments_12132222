@@ -1,0 +1,25 @@
+n=int(input('num:'))
+def Pascal_triangle(n):
+    triangle = [[1]]   #列出最开始的两特殊项
+    print(1,end='\t')
+    print()
+    for i in range(1,n):   #计数，产生大列表的新元素
+        newline = [1]   #新行的首项
+        a = triangle[i-1]   #将杨辉三角列表中的当前最后一个元素抽出，为计算下一元素做准备
+        for j in range(i-1):   #从0开始计数
+            b = a[j]+a[j+1]   #将抽出的元素从当前项开始累加
+            newline.append(b)   #累加的值循环堆入下一行
+        newline.append(1)   #最后堆入最后一项1
+        triangle.append(newline)   #将新生成的元素再堆入杨辉三角列表
+        for item in newline:
+            print(item,end='\t')
+        print()
+    # print(triangle)
+
+Pascal_triangle(n)  # 作业中的test n=50,100的情况只需要在input的时候输入就可以
+
+
+
+
+
+

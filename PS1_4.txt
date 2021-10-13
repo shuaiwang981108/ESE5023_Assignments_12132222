@@ -1,0 +1,15 @@
+import random
+def Least_moves(n = 0,x = random.randint(1,100)):
+    while x!=1:
+        if x%2 ==0:
+            x = x/2
+            n += 1
+        else: 
+            x = x-1
+            n +=1
+    print("least moves",n)
+    
+n = 0
+x = random.randint(1,100)
+print("initial number",x)
+Least_moves(n,x)

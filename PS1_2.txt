@@ -1,0 +1,16 @@
+import numpy as np
+D = []
+def Matrix_multip(M1,M2):
+    for i in range(len(M1)):    #矩阵乘法是对应行乘以对应列然后相加
+        temp = []
+        for k in range(len(M1)):
+            result = 0
+            for j in range(len(M2)):
+                result += ((M1[i][j]))*((M2[j][k]))   #相加的结果为产生新矩阵的每一个元素
+            temp.append(result)
+        D.append(temp)
+    print(D)      
+M1 = np.random.randint(1,50,[5,10])
+M2 = np.random.randint(1,50,[10,5])
+print(M1,'\n',M2)
+Matrix_multip(M1, M2)
